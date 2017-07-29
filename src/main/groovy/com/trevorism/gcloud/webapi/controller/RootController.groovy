@@ -26,7 +26,7 @@ class RootController {
     String help(){
         return """
 <h3>API documentation for email </h3><br/><br/>
-HTTP GET <a href="/ping">/ping</a> -- Returns "pong" if the application is working
+HTTP GET <a href="/ping">/ping</a> -- Returns "pong" if the application is working<br/>
 HTTP POST /mail-- Send an email
 """
     }
