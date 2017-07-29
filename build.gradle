@@ -33,3 +33,11 @@ dependencies {
 check{
     dependsOn('jacocoTestReport')
 }
+
+appengine {
+    deploy {
+        version = '1'
+        project = "trevorism-gcloud"
+        stopPreviousVersion = true
+    }
+}
