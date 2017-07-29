@@ -21,5 +21,5 @@ class SendMailServiceTest {
         Mail mail = new Mail("Test Subject", ["trevorism@gmail.com","trevorvbrooks@gmail.com"], "This is a test")
         assert service.sendMail(mail)
     }
-    
+
 }
