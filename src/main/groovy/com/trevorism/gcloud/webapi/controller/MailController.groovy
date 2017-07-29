@@ -1,6 +1,6 @@
 package com.trevorism.gcloud.webapi.controller
 
-import com.trevorism.gcloud.service.MailService
+import com.trevorism.gcloud.service.SendMailService
 import com.trevorism.gcloud.webapi.controller.com.trevorism.gcloud.model.Mail
 
 import javax.ws.rs.Consumes
@@ -14,12 +14,12 @@ import javax.ws.rs.core.MediaType
 @Path("/mail")
 class MailController {
 
-    private MailService mailService = new MailService()
+    private SendMailService mailService = new SendMailService()
 
     @POST
     @Path("")
     @Consumes(MediaType.APPLICATION_JSON)
-    void invokeHook(Mail mail) {
+    boolean sendMail(Mail mail) {
         mailService.sendMail(mail)
     }
 

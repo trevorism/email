@@ -9,18 +9,17 @@ import javax.mail.internet.MimeMessage
 /**
  * @author tbrooks
  */
-class MailServiceTest {
+class SendMailServiceTest {
 
     static {
         Transport.metaClass.'static'.send = { MimeMessage mm -> return}
     }
-    MailService service = new MailService()
+    SendMailService service = new SendMailService()
 
     @Test
     void testSendMail() {
         Mail mail = new Mail("Test Subject", ["trevorism@gmail.com","trevorvbrooks@gmail.com"], "This is a test")
-        service.sendMail(mail)
-
-
+        assert service.sendMail(mail)
     }
+    
 }

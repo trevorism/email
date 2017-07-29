@@ -13,18 +13,24 @@ import static javax.mail.Message.RecipientType.TO
 /**
  * @author tbrooks
  */
-class MailService {
+class SendMailService {
 
-    void sendMail(Mail mail){
+    boolean sendMail(Mail mail){
+        try{
+            MimeMessage message = generateMessage(mail)
+            Transport.send(message)
+            return true
+        }catch (Exception e){
+            e.printStackTrace()
+        }
+        return false
+    }
+
+    private MimeMessage generateMessage(Mail mail) {
         Properties props = createMailProperties()
         Session mailSession = Session.getDefaultInstance(props, null)
-
-        mailSession.setDebug(true)
-
         MimeMessage message = createMailMessage(mailSession, mail)
-
-        Transport.send(message)
-
+        return message
     }
 
     private Properties createMailProperties() {
