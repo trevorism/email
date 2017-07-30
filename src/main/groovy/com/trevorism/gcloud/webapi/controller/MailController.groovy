@@ -17,7 +17,6 @@ class MailController {
     private SendMailService mailService = new SendMailService()
 
     @POST
-    @Path("")
     @Consumes(MediaType.APPLICATION_JSON)
     boolean sendMail(Mail mail) {
         mailService.sendMail(mail)

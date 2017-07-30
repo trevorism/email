@@ -16,7 +16,6 @@ class RootController {
     }
 
     @GET
-    @Path("")
     String getEndpoints(){
         '<a href="/ping">/ping</a> </br> <a href="/help">/help</a>'
     }
