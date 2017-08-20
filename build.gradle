@@ -63,14 +63,13 @@ acceptance{
     finalizedBy("sendAcceptanceTestEvents")
 }
 
-check{
-    dependsOn('jacocoTestReport')
+appengine{
+    deploy {
+        stopPreviousVersion = true
+        promote = true
+    }
 }
 
-appengine {
-    deploy {
-        version = '1'
-        project = "trevorism-gcloud"
-        stopPreviousVersion = true
-    }
+check{
+    dependsOn('jacocoTestReport')
 }
