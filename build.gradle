@@ -42,7 +42,8 @@ dependencies {
 
     compile "org.glassfish.jersey.containers:jersey-container-servlet:$jerseyVersion"
 	compile "org.glassfish.jersey.media:jersey-media-json-jackson:$jerseyVersion"
-	compile 'com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.9.3'
+    compile "org.glassfish.jersey.inject:jersey-hk2:$jerseyVersion"
+    compile 'com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.9.3'
 
     acceptanceCompile 'io.cucumber:cucumber-groovy:2.0.1'
     acceptanceCompile 'com.trevorism:http-utils:1.0.0'
