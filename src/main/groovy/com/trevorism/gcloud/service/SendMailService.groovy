@@ -33,14 +33,14 @@ class SendMailService {
         return message
     }
 
-    private Properties createMailProperties() {
+    private static Properties createMailProperties() {
         Properties props = new Properties()
         props.put("mail.host", "smtp.google.com")
         props.put("mail.transport.protocol", "smtp")
         return props
     }
 
-    private MimeMessage createMailMessage(Session mailSession, Mail mail) {
+    private static MimeMessage createMailMessage(Session mailSession, Mail mail) {
         MimeMessage message = new MimeMessage(mailSession)
         message.setFrom(new InternetAddress("noreply@trevorism.com"))
         message.setSubject(mail.subject)
