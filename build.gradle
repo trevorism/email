@@ -33,7 +33,7 @@ repositories {
     }
 }
 
-def appengineVersion = "1.9.60"
+def appengineVersion = "1.9.62"
 def jerseyVersion = "2.26"
 
 dependencies {
@@ -45,9 +45,14 @@ dependencies {
     compile "org.glassfish.jersey.inject:jersey-hk2:$jerseyVersion"
     compile 'com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.9.3'
 
-    acceptanceCompile 'io.cucumber:cucumber-groovy:2.0.1'
+    compile 'com.trevorism:eventhub-client:1.4.0'
+
+    acceptanceCompile 'info.cukes:cucumber-groovy:1.2.5'
     acceptanceCompile 'com.trevorism:http-utils:1.0.0'
-    acceptanceCompile 'org.apache.httpcomponents:httpclient:4.5.3'
+    acceptanceCompile 'org.apache.httpcomponents:httpclient:4.5.5'
+
+    compile 'io.swagger:swagger-jersey2-jaxrs:1.5.16'
+    compile 'org.slf4j:slf4j-nop:1.7.25'
 
     testCompile 'junit:junit:4.12'
     testCompile "com.google.appengine:appengine-testing:$appengineVersion"

@@ -7,6 +7,9 @@ import javax.mail.Session
 import javax.mail.Transport
 import javax.mail.internet.InternetAddress
 import javax.mail.internet.MimeMessage
+import java.util.logging.Logger
+import java.util.logging.Level
+
 
 import static javax.mail.Message.RecipientType.TO
 
@@ -15,13 +18,15 @@ import static javax.mail.Message.RecipientType.TO
  */
 class SendMailService {
 
+    private static final Logger log = Logger.getLogger(SendMailService.class.name)
+
     boolean sendMail(Mail mail){
         try{
             MimeMessage message = generateMessage(mail)
             Transport.send(message)
             return true
         }catch (Exception e){
-            e.printStackTrace()
+            log.log(Level.SEVERE, "Error sending email", e)
         }
         return false
     }

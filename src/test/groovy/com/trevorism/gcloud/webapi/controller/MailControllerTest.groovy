@@ -15,7 +15,7 @@ class MailControllerTest {
     void testSendMail() {
         mailController.mailService = [sendMail: { Mail mail -> mail}] as SendMailService
 
-        assert !mailController.sendMail(null)
-        assert mailController.sendMail(new Mail("Subject", null, "Body"))
+        assert !mailController.sendMail(null, null)
+        assert mailController.sendMail(null, new Mail("Subject", null, "Body"))
     }
 }
