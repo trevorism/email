@@ -7,7 +7,7 @@
 
 Send email using this app
 
-Current Version: 0.2.0
+Current Version: 0.3.0
 
 Deployed to: [https://email-dot-trevorism-gcloud.appspot.com/](https://email-dot-trevorism-gcloud.appspot.com/)
 

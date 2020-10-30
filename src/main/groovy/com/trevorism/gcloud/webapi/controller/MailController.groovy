@@ -4,7 +4,6 @@ import com.trevorism.event.WorkCompleteEventProducer
 import com.trevorism.event.model.WorkComplete
 import com.trevorism.gcloud.service.SendMailService
 import com.trevorism.gcloud.webapi.controller.com.trevorism.gcloud.model.Mail
-import com.trevorism.http.headers.HeadersHttpClient
 import io.swagger.annotations.Api
 import io.swagger.annotations.ApiOperation
 
@@ -26,18 +25,18 @@ class MailController {
     private static final Logger log = Logger.getLogger(MailController.class.name)
     private SendMailService mailService = new SendMailService()
     private WorkCompleteEventProducer eventProducer = new WorkCompleteEventProducer()
+    private static final String CORRELATION_HEADER = "X-Correlation-ID"
 
     @ApiOperation(value = "Send an email")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     boolean sendMail(@Context HttpHeaders headers, Mail mail) {
-        String correlationId = headers?.getHeaderString(HeadersHttpClient.CORRELATION_ID_HEADER_KEY)
+        String correlationId = headers?.getHeaderString(CORRELATION_HEADER)
         log.info("Sending email to ${mail?.recipients} with correlationId: ${correlationId}")
         boolean result = mailService.sendMail(mail)
         if(result)
             eventProducer.sendEvent(new WorkComplete("trevorism-gcloud","email", correlationId))
         return result
     }
-
 
 }
