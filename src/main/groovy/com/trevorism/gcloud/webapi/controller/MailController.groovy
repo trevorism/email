@@ -4,6 +4,8 @@ import com.trevorism.event.WorkCompleteEventProducer
 import com.trevorism.event.model.WorkComplete
 import com.trevorism.gcloud.service.SendMailService
 import com.trevorism.gcloud.webapi.controller.com.trevorism.gcloud.model.Mail
+import com.trevorism.secure.Roles
+import com.trevorism.secure.Secure
 import io.swagger.annotations.Api
 import io.swagger.annotations.ApiOperation
 
@@ -29,6 +31,7 @@ class MailController {
 
     @ApiOperation(value = "Send an email")
     @POST
+    @Secure(Roles.USER)
     @Consumes(MediaType.APPLICATION_JSON)
     boolean sendMail(@Context HttpHeaders headers, Mail mail) {
         String correlationId = headers?.getHeaderString(CORRELATION_HEADER)
