@@ -56,7 +56,7 @@ dependencies {
 
     acceptanceImplementation 'io.cucumber:cucumber-groovy:4.7.1'
 
-    testCompile 'junit:junit:4.13.2'
+    testImplementation 'junit:junit:4.13.2'
 }
 
 appengine {
