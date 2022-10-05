@@ -1,4 +1,4 @@
-package com.trevorism.gcloud.webapi.controller
+package com.trevorism.gcloud.webapi
 
 import io.swagger.annotations.Api
 import io.swagger.annotations.ApiOperation

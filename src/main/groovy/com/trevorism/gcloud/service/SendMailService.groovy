@@ -1,6 +1,6 @@
 package com.trevorism.gcloud.service
 
-import com.trevorism.gcloud.webapi.controller.com.trevorism.gcloud.model.Mail
+import com.trevorism.gcloud.model.Mail
 
 import javax.mail.Address
 import javax.mail.Session

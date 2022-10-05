@@ -1,4 +1,4 @@
-package com.trevorism.gcloud.webapi.controller.com.trevorism.gcloud.model
+package com.trevorism.gcloud.model
 
 import groovy.transform.Canonical
 import io.swagger.annotations.ApiModelProperty

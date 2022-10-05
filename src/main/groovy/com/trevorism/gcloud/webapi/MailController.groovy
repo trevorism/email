@@ -1,7 +1,7 @@
-package com.trevorism.gcloud.webapi.controller
+package com.trevorism.gcloud.webapi
 
+import com.trevorism.gcloud.model.Mail
 import com.trevorism.gcloud.service.SendMailService
-import com.trevorism.gcloud.webapi.controller.com.trevorism.gcloud.model.Mail
 import com.trevorism.secure.Roles
 import com.trevorism.secure.Secure
 import io.swagger.annotations.Api
