@@ -1,6 +1,6 @@
 package com.trevorism.gcloud.service
 
-import com.trevorism.gcloud.webapi.controller.com.trevorism.gcloud.model.Mail
+import com.trevorism.gcloud.model.Mail
 import org.junit.Test
 
 import javax.mail.Transport
@@ -18,7 +18,7 @@ class SendMailServiceTest {
 
     @Test
     void testSendMail() {
-        Mail mail = new Mail("Test Subject", ["trevorism@gmail.com","trevorvbrooks@gmail.com"], "This is a test")
+        Mail mail = new Mail("Test Subject", ["trevorism@gmail.com", "trevorvbrooks@gmail.com"], "This is a test")
         assert service.sendMail(mail)
     }
 

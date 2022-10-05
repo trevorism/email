@@ -1,8 +1,8 @@
 package com.trevorism.gcloud.webapi.controller
 
+import com.trevorism.gcloud.model.Mail
 import com.trevorism.gcloud.service.SendMailService
 import com.trevorism.gcloud.webapi.MailController
-import com.trevorism.gcloud.webapi.controller.com.trevorism.gcloud.model.Mail
 import org.junit.Test
 
 /**
