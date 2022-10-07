@@ -6,11 +6,9 @@
 
 Send email using this app from noreply@trevorism.com
 
-Current Version: 0.5.0
+Current Version: 0.6.0
 
-Deployed to: [https://email.datastore.trevorism.com](https://email.datastore.trevorism.com)
+Deployed to: [Email](https://email.action.trevorism.com)
 
-##Prerequisites
-* Java 8
-* Gradle
-* Gcloud SDK
+## How To Build
+`gradle clean build`

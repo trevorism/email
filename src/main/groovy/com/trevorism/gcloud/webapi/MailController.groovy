@@ -31,10 +31,10 @@ class MailController {
     @POST
     @Secure(Roles.USER)
     @Consumes(MediaType.APPLICATION_JSON)
-    boolean sendMail(@Context HttpHeaders headers, Mail mail) {
+    Mail sendMail(@Context HttpHeaders headers, Mail mail) {
         String correlationId = headers?.getHeaderString(CORRELATION_HEADER)
         log.info("Sending email to ${mail?.recipients} with correlationId: ${correlationId}")
-        boolean result = mailService.sendMail(mail)
+        Mail result = mailService.sendMail(mail)
         return result
     }
 

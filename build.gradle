@@ -62,7 +62,7 @@ dependencies {
 appengine {
     deploy {
         projectId = "trevorism-gcloud"
-        version = "0-5-0"
+        version = "0-6-0"
         stopPreviousVersion = true
         promote = true
     }

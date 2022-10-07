@@ -20,11 +20,11 @@ class SendMailService {
 
     private static final Logger log = Logger.getLogger(SendMailService.class.name)
 
-    boolean sendMail(Mail mail){
+    Mail sendMail(Mail mail){
         try{
             MimeMessage message = generateMessage(mail)
             Transport.send(message)
-            return true
+            return mail
         }catch (Exception e){
             log.log(Level.SEVERE, "Error sending email", e)
         }
