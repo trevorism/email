@@ -10,6 +10,7 @@ import io.swagger.annotations.ApiOperation
 import javax.ws.rs.Consumes
 import javax.ws.rs.POST
 import javax.ws.rs.Path
+import javax.ws.rs.Produces
 import javax.ws.rs.core.Context
 import javax.ws.rs.core.HttpHeaders
 import javax.ws.rs.core.MediaType
@@ -31,6 +32,7 @@ class MailController {
     @POST
     @Secure(Roles.USER)
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     Mail sendMail(@Context HttpHeaders headers, Mail mail) {
         String correlationId = headers?.getHeaderString(CORRELATION_HEADER)
         log.info("Sending email to ${mail?.recipients} with correlationId: ${correlationId}")
