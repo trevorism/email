@@ -30,7 +30,7 @@ class MailController {
 
     @ApiOperation(value = "Send an email")
     @POST
-    @Secure(Roles.USER)
+    @Secure(value = Roles.USER, allowInternal = true)
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     Mail sendMail(@Context HttpHeaders headers, Mail mail) {
