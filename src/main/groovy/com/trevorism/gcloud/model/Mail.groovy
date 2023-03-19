@@ -1,21 +1,18 @@
 package com.trevorism.gcloud.model
 
 import groovy.transform.Canonical
-import io.swagger.annotations.ApiModelProperty
+import io.swagger.v3.oas.annotations.media.Schema
 
-/**
- * @author tbrooks
- */
 @Canonical
 class Mail {
 
-    @ApiModelProperty(value = "The subject of the email", dataType = "string")
+    @Schema(description = "The subject of the email", type = "string")
     String subject
 
-    @ApiModelProperty(value = "A list of email addresses to receive the email")
+    @Schema(description = "A list of email addresses to receive the email")
     List<String> recipients
 
-    @ApiModelProperty(value = "The content of the email", dataType = "string")
+    @Schema(description = "The content of the email", type = "string")
     String body
 
 }

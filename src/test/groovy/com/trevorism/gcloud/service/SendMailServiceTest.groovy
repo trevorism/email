@@ -1,7 +1,7 @@
 package com.trevorism.gcloud.service
 
 import com.trevorism.gcloud.model.Mail
-import org.junit.Test
+import org.junit.jupiter.api.Test
 
 import javax.mail.Transport
 import javax.mail.internet.MimeMessage

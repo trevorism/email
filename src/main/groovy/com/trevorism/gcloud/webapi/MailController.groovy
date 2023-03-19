@@ -4,38 +4,32 @@ import com.trevorism.gcloud.model.Mail
 import com.trevorism.gcloud.service.SendMailService
 import com.trevorism.secure.Roles
 import com.trevorism.secure.Secure
-import io.swagger.annotations.Api
-import io.swagger.annotations.ApiOperation
+import io.micronaut.http.HttpHeaders
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
-import javax.ws.rs.Consumes
-import javax.ws.rs.POST
-import javax.ws.rs.Path
-import javax.ws.rs.Produces
-import javax.ws.rs.core.Context
-import javax.ws.rs.core.HttpHeaders
-import javax.ws.rs.core.MediaType
-import java.util.logging.Logger
+import io.micronaut.http.MediaType
+import io.micronaut.http.annotation.*
+import io.swagger.v3.oas.annotations.Operation
+import io.swagger.v3.oas.annotations.tags.Tag
 
-/**
- * @author tbrooks
- */
-@Api("Email Operations")
-@Path("/mail")
+@Controller("/mail")
 class MailController {
 
-    private static final Logger log = Logger.getLogger(MailController.class.name)
+    private static final Logger log = LoggerFactory.getLogger(MailController)
     private SendMailService mailService = new SendMailService()
 
     private static final String CORRELATION_HEADER = "X-Correlation-ID"
 
-    @ApiOperation(value = "Send an email")
-    @POST
-    @Secure(value = Roles.USER, allowInternal = true)
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    Mail sendMail(@Context HttpHeaders headers, Mail mail) {
-        String correlationId = headers?.getHeaderString(CORRELATION_HEADER)
-        log.info("Sending email to ${mail?.recipients} with correlationId: ${correlationId}")
+    @Tag(name = "Email Operations")
+    @Operation(summary = "Send an email")
+    @Post(value = "/", produces = MediaType.APPLICATION_JSON, consumes = MediaType.APPLICATION_JSON)
+    //@Secure(value = Roles.USER, allowInternal = true)
+    Mail sendMail(Mail mail, HttpHeaders headers) {
+        String correlationId = headers.get(CORRELATION_HEADER)
+        if(correlationId){
+            log.info("Correlation Id: ${correlationId}")
+        }
         Mail result = mailService.sendMail(mail)
         return result
     }

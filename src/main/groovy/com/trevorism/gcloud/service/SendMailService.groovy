@@ -7,18 +7,14 @@ import javax.mail.Session
 import javax.mail.Transport
 import javax.mail.internet.InternetAddress
 import javax.mail.internet.MimeMessage
-import java.util.logging.Logger
-import java.util.logging.Level
-
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
 import static javax.mail.Message.RecipientType.TO
 
-/**
- * @author tbrooks
- */
 class SendMailService {
 
-    private static final Logger log = Logger.getLogger(SendMailService.class.name)
+    private static final Logger log = LoggerFactory.getLogger(SendMailService)
 
     Mail sendMail(Mail mail){
         try{
@@ -26,7 +22,7 @@ class SendMailService {
             Transport.send(message)
             return mail
         }catch (Exception e){
-            log.log(Level.SEVERE, "Error sending email", e)
+            log.error("Error sending email", e)
         }
         return false
     }
