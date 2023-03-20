@@ -58,7 +58,7 @@ dependencies {
     implementation 'com.trevorism:micronaut-security-utils:0.3.0'
     implementation 'com.google.appengine:appengine-api-1.0-sdk:2.0.12'
     implementation 'javax.activation:activation:1.1.1'
-    
+
     acceptanceImplementation 'io.cucumber:cucumber-groovy:6.10.4'
 
 }

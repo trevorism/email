@@ -1,5 +1,6 @@
 package com.trevorism.gcloud.service
 
+import com.google.appengine.api.ThreadManager
 import com.trevorism.gcloud.model.Mail
 
 import javax.mail.Address
@@ -16,14 +17,16 @@ class SendMailService {
 
     private static final Logger log = LoggerFactory.getLogger(SendMailService)
 
-    Mail sendMail(Mail mail){
-        try{
-            MimeMessage message = generateMessage(mail)
-            Transport.send(message)
-            return mail
-        }catch (Exception e){
-            log.error("Error sending email", e)
-        }
+    Mail sendMail(Mail mail) {
+        ThreadManager.createBackgroundThread(() -> {
+            try {
+                MimeMessage message = generateMessage(mail)
+                Transport.send(message)
+                return mail
+            } catch (Exception e) {
+                log.error("Error sending email", e)
+            }
+        })
         return new Mail()
     }
 
