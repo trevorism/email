@@ -56,8 +56,8 @@ dependencies {
     implementation 'org.slf4j:slf4j-simple:2.0.6'
 
     implementation 'com.trevorism:micronaut-security-utils:0.3.0'
-    implementation 'com.google.appengine:appengine-api-1.0-sdk:2.0.12'
-    implementation 'javax.activation:activation:1.1'
+    implementation 'javax.mail:javax.mail-api:1.6.2'
+    implementation 'com.sun.mail:javax.mail:1.6.2'
     
     acceptanceImplementation 'io.cucumber:cucumber-groovy:6.10.4'
 

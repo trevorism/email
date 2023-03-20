@@ -24,7 +24,7 @@ class SendMailService {
         }catch (Exception e){
             log.error("Error sending email", e)
         }
-        return false
+        return new Mail()
     }
 
     private MimeMessage generateMessage(Mail mail) {
