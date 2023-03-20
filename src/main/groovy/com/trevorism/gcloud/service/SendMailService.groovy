@@ -36,8 +36,8 @@ class SendMailService {
 
     private static Properties createMailProperties() {
         Properties props = new Properties()
-        //props.put("mail.host", "smtp.google.com")
-        //props.put("mail.transport.protocol", "smtp")
+        props.put("mail.host", "smtp.google.com")
+        props.put("mail.transport.protocol", "smtp")
         return props
     }
 
