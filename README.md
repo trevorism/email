@@ -6,7 +6,7 @@
 
 Send email using this app from noreply@trevorism.com
 
-Current Version: 1.0.0
+Current Version: 0.6.0
 
 Deployed to: [Email](https://email.action.trevorism.com)
 

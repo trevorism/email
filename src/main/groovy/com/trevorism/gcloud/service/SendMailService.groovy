@@ -1,6 +1,5 @@
 package com.trevorism.gcloud.service
 
-import com.google.appengine.api.ThreadManager
 import com.trevorism.gcloud.model.Mail
 
 import javax.mail.Address
@@ -8,30 +7,28 @@ import javax.mail.Session
 import javax.mail.Transport
 import javax.mail.internet.InternetAddress
 import javax.mail.internet.MimeMessage
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
+import java.util.logging.Logger
+import java.util.logging.Level
+
 
 import static javax.mail.Message.RecipientType.TO
 
+/**
+ * @author tbrooks
+ */
 class SendMailService {
 
-    private static final Logger log = LoggerFactory.getLogger(SendMailService)
+    private static final Logger log = Logger.getLogger(SendMailService.class.name)
 
-    Mail sendMail(Mail mail) {
-        def factory = ThreadManager.currentRequestThreadFactory()
-        def runnable = () -> {
-            try {
-                MimeMessage message = generateMessage(mail)
-                Transport.send(message)
-                return mail
-            } catch (Exception e) {
-                log.error("Error sending email", e)
-            }
+    Mail sendMail(Mail mail){
+        try{
+            MimeMessage message = generateMessage(mail)
+            Transport.send(message)
+            return mail
+        }catch (Exception e){
+            log.log(Level.SEVERE, "Error sending email", e)
         }
-        Thread thread = factory.newThread(runnable)
-        thread.start()
-        thread.join()
-        return mail
+        return false
     }
 
     private MimeMessage generateMessage(Mail mail) {

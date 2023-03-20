@@ -3,8 +3,7 @@ package com.trevorism.gcloud.webapi.controller
 import com.trevorism.gcloud.model.Mail
 import com.trevorism.gcloud.service.SendMailService
 import com.trevorism.gcloud.webapi.MailController
-import io.micronaut.http.simple.SimpleHttpHeaders
-import org.junit.jupiter.api.Test
+import org.junit.Test
 
 /**
  * @author tbrooks
@@ -17,6 +16,6 @@ class MailControllerTest {
     void testSendMail() {
         mailController.mailService = [sendMail: { Mail mail -> mail}] as SendMailService
 
-        assert !mailController.sendMail(null, new SimpleHttpHeaders(null))
+        assert !mailController.sendMail(null, null)
     }
 }
