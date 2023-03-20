@@ -18,7 +18,8 @@ class SendMailService {
     private static final Logger log = LoggerFactory.getLogger(SendMailService)
 
     Mail sendMail(Mail mail) {
-        ThreadManager.createBackgroundThread(() -> {
+        def factory = ThreadManager.currentRequestThreadFactory()
+        def runnable = () -> {
             try {
                 MimeMessage message = generateMessage(mail)
                 Transport.send(message)
@@ -26,8 +27,11 @@ class SendMailService {
             } catch (Exception e) {
                 log.error("Error sending email", e)
             }
-        })
-        return new Mail()
+        }
+        Thread thread = factory.newThread(runnable)
+        thread.start()
+        thread.join()
+        return mail
     }
 
     private MimeMessage generateMessage(Mail mail) {
