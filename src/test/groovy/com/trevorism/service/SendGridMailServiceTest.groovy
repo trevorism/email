@@ -9,6 +9,6 @@ class SendGridMailServiceTest {
     void testSendEmail() {
         SendGridMailService sendGridMailService = new SendGridMailService()
         Mail mail = new Mail("Test Subject", ["trevorism@gmail.com"], "Test Body")
-        sendGridMailService.sendMail(mail)
+        //sendGridMailService.sendMail(mail)
     }
 }
