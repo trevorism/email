@@ -27,7 +27,7 @@ class MailController {
     @Operation(summary = "Send an email")
     @Post(value = "/", produces = MediaType.APPLICATION_JSON, consumes = MediaType.APPLICATION_JSON)
     @Secure(value = Roles.USER, allowInternal = true)
-    Mail sendMail(Mail mail) {
+    Mail sendMail(@Body Mail mail) {
         Mail result = mailService.sendMail(mail)
         return result
     }

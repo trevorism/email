@@ -21,7 +21,7 @@ class Application {
     private static final Logger log = LoggerFactory.getLogger( Application )
 
     static void main(String[] args) {
-        log.info("Started Schedule app.")
+        log.info("Started Email app.")
         Micronaut.run(Application, args)
     }
 }
