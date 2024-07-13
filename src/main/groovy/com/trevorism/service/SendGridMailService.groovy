@@ -1,11 +1,6 @@
 package com.trevorism.service
 
 import com.google.gson.Gson
-import com.trevorism.ClasspathBasedPropertiesProvider
-import com.trevorism.PropertiesProvider
-import com.trevorism.http.HeadersHttpResponse
-import com.trevorism.http.HttpClient
-import com.trevorism.http.JsonHttpClient
 import com.trevorism.https.InternalTokenSecureHttpClient
 import com.trevorism.https.SecureHttpClient
 import com.trevorism.model.EmailContent
@@ -34,8 +29,8 @@ class SendGridMailService implements SendMailService{
     Mail sendMail(Mail mail){
         SendGridEmail sendGridEmail = convert(mail)
         String emailJson = gson.toJson(sendGridEmail)
-        def hhr = httpClient.post(url, emailJson)
-
+        def sendGridResponse = httpClient.post(url, emailJson)
+        log.debug("Sent email with response: ${sendGridResponse}")
         return mail
     }
 

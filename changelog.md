@@ -1,3 +1,6 @@
+## 1.2.0
+
+Send email event, update dependencies.
 
 ## 1.1.0
 
