@@ -1,6 +1,6 @@
 ## 1.3.0
 
-Moved from SendGrid to Mailgun for email implementation.
+Moved from SendGrid to Mailgun for email implementation. Update micronaut version.
 
 ## 1.2.0
 
