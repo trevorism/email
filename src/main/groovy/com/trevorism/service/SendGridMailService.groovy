@@ -11,7 +11,6 @@ import com.trevorism.model.ToAndSubject
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-@jakarta.inject.Singleton
 class SendGridMailService implements SendMailService{
 
     private static final Logger log = LoggerFactory.getLogger(SendGridMailService)
@@ -20,7 +19,9 @@ class SendGridMailService implements SendMailService{
     private final SecureHttpClient httpClient
     private final Gson gson = new Gson()
 
-
+    /**
+    This is no longer used, SendGrid free plan expired.
+     */
     SendGridMailService(){
         this.httpClient = new InternalTokenSecureHttpClient()
     }

@@ -1,3 +1,7 @@
+## 1.3.0
+
+Moved from SendGrid to Mailgun for email implementation.
+
 ## 1.2.0
 
 Send email event, update dependencies.
