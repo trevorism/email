@@ -16,10 +16,11 @@ import org.slf4j.LoggerFactory
 class MailgunMailService implements SendMailService{
 
     private static final Logger log = LoggerFactory.getLogger(MailgunMailService)
+    public static final String MESSAGES_API_URI = "https://api.mailgun.net/v3/mg.trevorism.com/messages"
 
     @Override
     Mail sendMail(Mail mail){
-        HttpPost post = new HttpPost("https://api.mailgun.net/v3/trevorism.com/messages")
+        HttpPost post = new HttpPost(MESSAGES_API_URI)
 
         setupAuth(post)
         constructEmail(mail, post)
