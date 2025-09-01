@@ -1,3 +1,7 @@
+## 1.3.1
+
+Move to java 21, gradle 9
+
 ## 1.3.0
 
 Moved from SendGrid to Mailgun for email implementation. Update micronaut version.

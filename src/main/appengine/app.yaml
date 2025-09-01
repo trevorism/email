@@ -1,4 +1,4 @@
-runtime: java17
+runtime: java21
 service: email
 entrypoint: java -jar email-all.jar
 handlers:
