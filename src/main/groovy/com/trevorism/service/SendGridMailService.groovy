@@ -11,6 +11,7 @@ import com.trevorism.model.ToAndSubject
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
+@Deprecated
 class SendGridMailService implements SendMailService{
 
     private static final Logger log = LoggerFactory.getLogger(SendGridMailService)
