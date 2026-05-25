@@ -1,3 +1,7 @@
+## 1.4.0
+
+Upgrade to Micronaut 5.0.0, Java 25, Gradle latest. Updated build plugins and dependencies.
+
 ## 1.3.1
 
 Move to java 21, gradle 9
