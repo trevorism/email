@@ -1,3 +1,7 @@
+## 1.5.0
+
+Update dependencies, deleted the previously deprecated SendGrid implementation.
+
 ## 1.4.0
 
 Upgrade to Micronaut 5.0.0, Java 25, Gradle latest. Updated build plugins and dependencies.
